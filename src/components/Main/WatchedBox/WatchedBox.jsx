@@ -1,8 +1,6 @@
 import { useState } from "react";
-import WatchedMoviesList from "./WatchedMoviesList";
-import WatchedSummary from "./WatchedSummary";
 
-function WatchedBox({ watched }) {
+function WatchedBox({ children }) {
   const [isOpen2, setIsOpen2] = useState(true);
 
   return (
@@ -13,12 +11,7 @@ function WatchedBox({ watched }) {
       >
         {isOpen2 ? "-" : "+"}
       </button>
-      {isOpen2 && (
-        <>
-          <WatchedSummary watched={watched} />
-          <WatchedMoviesList watched={watched} />
-        </>
-      )}
+      {isOpen2 && <>{children}</>}
     </div>
   );
 }
